@@ -194,9 +194,7 @@ public class  LoginActivity extends AppCompatActivity implements LoaderCallbacks
 
     private boolean isLoginValid(String login, String password) {
 
-        ConnectionWebService connectionWebService = new ConnectionWebService(this);
-
-        String responseLogin = connectionWebService.getJWTconnection(login, password);
+        String responseLogin = ConnectionWebService.getInstance(this).getJWTconnection(login, password);
 
         ResultLogin resultLogin = new ResultLogin();
 

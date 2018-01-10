@@ -6,6 +6,8 @@ import android.util.JsonReader;
 import android.util.JsonToken;
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -48,15 +50,24 @@ public class ConnectionWebService {
     private static final String MYPRJ_WEB_SERVICE = "MYPRJ";
 
 
-
+    private static ConnectionWebService instance;
     private Context activityContext;
     private SSLContext sslContext;
+    private String login;
+    private String password;
+    private String token;
 
-    public ConnectionWebService(Context activityContext) {
+    private ConnectionWebService(Context activityContext) {
         this.activityContext = activityContext;
         getSSLcontext();
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+    }
+
+    public static synchronized ConnectionWebService getInstance(Context activityContext){
+        if(instance== null)
+            instance = new ConnectionWebService(activityContext);
+        return instance;
     }
 
     public void getSSLcontext() {
@@ -124,8 +135,6 @@ public class ConnectionWebService {
         return sb.toString();
     }
 
-
-
     public String getJWTconnection(String login, String password) {
 
         URL url;
@@ -154,16 +163,30 @@ public class ConnectionWebService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        if (response != null) {
+            try {
+                JSONObject jsonObj = new JSONObject(response);
+                String results = jsonObj.getString("result");
+                if (results.equals("OK")) {
+                    this.token = jsonObj.getString("token");
+                    this.login = login;
+                    this.password = password;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return response;
     }
 
-    public String getListInformationOfAllProjects(String login, String token){
+    public String getListInformationOfAllProjects(){
 
         URL url;
         //JsonReader jsonResponse = null;
         String response = null;
         try {
-            url = new URL(WEB_SERVICE_URL+"?q="+LIPRJ_WEB_SERVICE+"&user="+login+"&token="+token);
+            url = new URL(WEB_SERVICE_URL+"?q="+LIPRJ_WEB_SERVICE+"&user="+this.login+"&token="+this.token);
             HttpsURLConnection urlConnection;
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
@@ -187,13 +210,13 @@ public class ConnectionWebService {
     }
 
 
-    public String getProjectsWhereUserIsSupervisor(String login, String token){
+    public String getProjectsWhereUserIsSupervisor(){
 
         URL url;
         //JsonReader jsonResponse = null;
         String response = null;
         try {
-            url = new URL(WEB_SERVICE_URL+"?q="+MYPRJ_WEB_SERVICE+"&user="+login+"&token="+token);
+            url = new URL(WEB_SERVICE_URL+"?q="+MYPRJ_WEB_SERVICE+"&user="+this.login+"&token="+this.token);
             HttpsURLConnection urlConnection;
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
