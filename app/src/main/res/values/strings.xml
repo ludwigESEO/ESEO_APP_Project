@@ -24,4 +24,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="strAllProjectsView">Here, you can have access at all the projects !</string>
     <string name="strAfficherInfoProject">More Details</string>
+    <string name="home_fragment">Bonjour, </string>
+    <string name="home_fragment_text">Vous venez de vous connecter à l\'application de gestion des projets de fin d\'études (PFE).</string>
 </resources>

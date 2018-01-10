@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fr.eseo.dis.couroulu.eseo_app_project.HomeFragment">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/batiment_eseo" />
+
+    <TextView
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:text="@string/home_fragment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:text="@string/home_fragment_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"/>
+
+
+
+</FrameLayout>

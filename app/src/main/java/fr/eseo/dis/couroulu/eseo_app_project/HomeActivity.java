@@ -28,6 +28,8 @@ public class HomeActivity extends AppCompatActivity
     private ViewPager viewPager;
     private AllPostersFragment postersFragment;
     private MyPostersFragment myposterFragment;
+    private MyJuriesFragment myJuriesFragment ;
+    private HomeFragment homeFragment;
     private MonPagerAdapter pagerAdapter;
 
     @Override
@@ -62,9 +64,11 @@ public class HomeActivity extends AppCompatActivity
         String login = intent.getStringExtra("Login");
         loginTextView.setText(login);
 
-
+        this.homeFragment = new HomeFragment();
         this.myposterFragment = new MyPostersFragment();
         this.postersFragment = new AllPostersFragment();
+        this.myJuriesFragment = new MyJuriesFragment();
+
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         pagerAdapter = new MonPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
@@ -109,11 +113,11 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_allprojects) {
-                viewPager.setCurrentItem(0);
-        } else if (id == R.id.nav_myproject) {
                 viewPager.setCurrentItem(1);
+        } else if (id == R.id.nav_myproject) {
+                viewPager.setCurrentItem(2);
         } else if (id == R.id.nav_jurys) {
-
+                viewPager.setCurrentItem(3);
 
         }
 
@@ -131,16 +135,20 @@ public class HomeActivity extends AppCompatActivity
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
+                return homeFragment;
+            }if (position == 1){
                 return postersFragment;
+            }if (position == 2) {
+                return myposterFragment ;
             }else{
-                return myposterFragment;
+                return myJuriesFragment;
             }
 
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 4;
         }
     }
 }
