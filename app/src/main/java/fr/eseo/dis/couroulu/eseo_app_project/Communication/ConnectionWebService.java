@@ -131,6 +131,8 @@ public class ConnectionWebService {
         String response = null;
         try {
             url = new URL(WEB_SERVICE_URL+"?q="+LOGON_WEB_SERVICE+"&user="+login+"&pass="+password);
+            Log.d("url :", WEB_SERVICE_URL+"?q="+LOGON_WEB_SERVICE+"&user="+login+"&pass="+password);
+
             HttpsURLConnection urlConnection;
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
