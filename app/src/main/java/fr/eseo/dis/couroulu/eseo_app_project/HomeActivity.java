@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity
 
     private ViewPager viewPager;
     private AllPostersFragment postersFragment;
+    private MyPostersFragment myposterFragment;
     private MonPagerAdapter pagerAdapter;
 
     @Override
@@ -59,11 +60,14 @@ public class HomeActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         String login = intent.getStringExtra("Login");
-        Log.d("login",login);
-
-        Log.d("affichage string vide:",loginTextView.getText().toString());
         loginTextView.setText(login);
-        Log.d("affichage string TEST:",loginTextView.getText().toString());
+
+
+        this.myposterFragment = new MyPostersFragment();
+        this.postersFragment = new AllPostersFragment();
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        pagerAdapter = new MonPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -107,7 +111,7 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_allprojects) {
                 viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_myproject) {
-
+                viewPager.setCurrentItem(1);
         } else if (id == R.id.nav_jurys) {
 
 
@@ -129,7 +133,7 @@ public class HomeActivity extends AppCompatActivity
             if (position == 0) {
                 return postersFragment;
             }else{
-                return postersFragment;
+                return myposterFragment;
             }
 
         }

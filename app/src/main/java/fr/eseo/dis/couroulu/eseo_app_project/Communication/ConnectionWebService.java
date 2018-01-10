@@ -55,6 +55,8 @@ public class ConnectionWebService {
     public ConnectionWebService(Context activityContext) {
         this.activityContext = activityContext;
         getSSLcontext();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
     }
 
     public void getSSLcontext() {

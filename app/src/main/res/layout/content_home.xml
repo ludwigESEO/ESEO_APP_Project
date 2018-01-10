@@ -8,4 +8,10 @@
     tools:context="fr.eseo.dis.couroulu.eseo_app_project.HomeActivity"
     tools:showIn="@layout/app_bar_home">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"/>
+
 </android.support.constraint.ConstraintLayout>

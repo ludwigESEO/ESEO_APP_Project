@@ -1,6 +1,10 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Data;
 
 
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
+
         import java.util.ArrayList;
         import java.util.List;
 
@@ -9,11 +13,12 @@ package fr.eseo.dis.couroulu.eseo_app_project.Data;
  */
 
 public class Project {
+
     private int idProject;
     private String title;
     private String descrip;
     private boolean poster;
-    private List<Supervisor> supervisor;
+    private Supervisor supervisor;
     private int confid;
     private List<Student> students;
 
@@ -49,11 +54,11 @@ public class Project {
         this.poster = poster;
     }
 
-    public List<Supervisor> getSupervisor() {
+    public Supervisor getSupervisor() {
         return supervisor;
     }
 
-    public void setSupervisor(List<Supervisor> supervisor) {
+    public void setSupervisor(Supervisor supervisor) {
         this.supervisor = supervisor;
     }
 
