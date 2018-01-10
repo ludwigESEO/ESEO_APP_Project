@@ -7,7 +7,16 @@
         <item
             android:id="@+id/nav_allprojects"
             android:icon="@drawable/ic_menu_camera"
-            android:title="All Projects" />
+            android:title="All Projects"/>
+
+        <fragment
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:name="com.android2ee.tuto.fragment.sample1.ListFragment"
+            android:orientation="horizontal" >
+        </fragment>
+
         <item
             android:id="@+id/nav_myproject"
             android:icon="@drawable/ic_menu_gallery"
