@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.JsonReader;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -202,6 +203,10 @@ public class  LoginActivity extends AppCompatActivity implements LoaderCallbacks
         ResultLogin resultLogin = new ResultLogin();
 
         boolean resultBool = resultLogin.Deserialize(responseLogin);
+
+        Log.d("Jsonreponse login : ", responseLogin);
+        Log.d("boolean result", (resultLogin.getResult()));
+
 
         return resultBool;
     }
