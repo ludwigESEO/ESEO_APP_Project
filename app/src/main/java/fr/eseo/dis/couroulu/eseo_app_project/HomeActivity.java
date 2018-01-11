@@ -7,9 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,14 +17,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ViewPager viewPager;
-    private AllPostersFragment postersFragment;
+    private AllProjectsFragment allProjectsFragment;
     private MyPostersFragment myposterFragment;
     private MyJuriesFragment myJuriesFragment ;
     private HomeFragment homeFragment;
@@ -66,7 +63,7 @@ public class HomeActivity extends AppCompatActivity
 
         this.homeFragment = new HomeFragment();
         this.myposterFragment = new MyPostersFragment();
-        this.postersFragment = new AllPostersFragment();
+        this.allProjectsFragment = AllProjectsFragment.newInstance(this);
         this.myJuriesFragment = new MyJuriesFragment();
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -137,7 +134,7 @@ public class HomeActivity extends AppCompatActivity
             if (position == 0) {
                 return homeFragment;
             }if (position == 1){
-                return postersFragment;
+                return allProjectsFragment;
             }if (position == 2) {
                 return myposterFragment ;
             }else{
