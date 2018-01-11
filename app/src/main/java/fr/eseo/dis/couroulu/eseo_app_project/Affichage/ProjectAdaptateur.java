@@ -34,8 +34,8 @@ public class ProjectAdaptateur extends ArrayAdapter<Project> {
             ProjectViewHolder viewHolder = (ProjectViewHolder) convertView.getTag();
             if(viewHolder == null){
                 viewHolder = new ProjectViewHolder();
-                viewHolder.title = (TextView) convertView.findViewById(R.id.pseudo);
-                viewHolder.descrip = (TextView) convertView.findViewById(R.id.text);
+                viewHolder.title = (TextView) convertView.findViewById(R.id.title);
+                viewHolder.descrip = (TextView) convertView.findViewById(R.id.descrip);
                 convertView.setTag(viewHolder);
             }
 

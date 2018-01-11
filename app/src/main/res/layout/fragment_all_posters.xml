@@ -10,8 +10,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <TextView
+            <ListView android:id="@+id/listView" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+        <!--<TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +31,7 @@
             android:text="Description Projet"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <!--<Button
+        <Button
             android:id="@+id/ButtonMoreInformations"
             android:layout_width="144dp"
             android:layout_height="36dp"

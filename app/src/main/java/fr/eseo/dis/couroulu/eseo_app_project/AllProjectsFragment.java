@@ -48,19 +48,13 @@ public class AllProjectsFragment extends Fragment {
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_all_posters, container, false);
         //Instancier vos composants graphique ici (faîtes vos findViewById)
-        //setContentView(R.layout.activity_home);
-       // mListView = (ListView) findViewById(R.id.listView);
+       //setContentView(R.layout.activity_home);
+         mListView = (ListView) view.findViewById(R.id.listView);
 
         List<Project> projects = getAllProject();
 
-       // ProjectAdaptateur adapter = new ProjectAdaptateur(MainActivity.this, projects);
-        //mListView.setAdapter(adapter);
-       // for(Project project : projects) {
-         //   txtDescriptionProjectsView = (TextView) view.findViewById(R.id.txtDescriptionProjectsView);
-           // txtDescriptionProjectsView.setText(project.getDescrip());
-           // txtTitleProjectsView = (TextView) view.findViewById(R.id.txtTitleProjectsView);
-
-        //}
+        ProjectAdaptateur adapter = new ProjectAdaptateur(homeActivity, projects);
+        mListView.setAdapter(adapter);
         //buttonMoreInformations = (Button) view.findViewById(R.id.ButtonMoreInformations);
         //buttonMoreInformations.setOnClickListener(btnListenerMoreInfo);
         return view;
