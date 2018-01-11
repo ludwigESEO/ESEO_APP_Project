@@ -52,6 +52,9 @@ public class AllProjectsFragment extends Fragment {
          mListView = (ListView) view.findViewById(R.id.listView);
 
         List<Project> projects = getAllProject();
+        Log.d("Size project list :  ", String.valueOf(projects.size()));
+
+        Log.d("1er projet", projects.get(0).getTitle());
 
         ProjectAdaptateur adapter = new ProjectAdaptateur(homeActivity, projects);
         mListView.setAdapter(adapter);
