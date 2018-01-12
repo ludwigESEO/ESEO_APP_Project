@@ -41,8 +41,6 @@ public class AllProjectsFragment extends Fragment {
         List<Project> projects = getAllProject();
         ProjectAdaptateur adapter = new ProjectAdaptateur(homeActivity, projects);
         mListView.setAdapter(adapter);
-        //buttonMoreInformations = (Button) view.findViewById(R.id.ButtonMoreInformations);
-        //buttonMoreInformations.setOnClickListener(btnListenerMoreInfo);
         return view;
     }
 /*

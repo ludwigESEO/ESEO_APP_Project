@@ -43,8 +43,12 @@ public class ProjectAdaptateur extends ArrayAdapter<Project> {
 
             //il ne reste plus qu'à remplir notre vue
             viewHolder.title.setText(project.getTitle());
-            viewHolder.descrip.setText(project.getDescrip().substring(0,150)+" ...");
-
+            String description = project.getDescrip();
+            if (description.length()< 147){
+                viewHolder.descrip.setText(project.getDescrip());
+            }else {
+                viewHolder.descrip.setText(project.getDescrip().substring(0, 147) + " ...");
+            }
             return convertView;
         }
 
