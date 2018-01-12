@@ -39,6 +39,30 @@ public class Deserializer {
         return project;
     }
 
+    public static synchronized Jury deserializeJury(JSONObject json) throws Exception{
+
+       Jury jury = new Jury();
+        if (json.has("idJury")){
+            jury.setIdJury(json.getInt("idJury"));
+        }
+        if (json.has("date")){
+            jury.setDate(json.getString("date"));
+        }
+        if (json.has("info")){
+            JSONObject jsonInfo = json.getJSONObject("info");
+            if (jsonInfo.has("projects")) {
+                JSONArray projectsJson = jsonInfo.getJSONArray("projects");
+                List<Project> projects = new ArrayList<Project>();
+                for (int i = 0; i< projectsJson.length(); i++){
+                    projects.add(deserializeProject(projectsJson.getJSONObject(i)));
+                }
+            }
+
+        }
+       return null;
+
+    }
+
     public static synchronized Supervisor deserializeSupervisor(JSONObject json) throws Exception {
         Supervisor supervisor = new Supervisor();
 

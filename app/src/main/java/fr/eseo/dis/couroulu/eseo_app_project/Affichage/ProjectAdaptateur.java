@@ -19,7 +19,6 @@ import fr.eseo.dis.couroulu.eseo_app_project.R;
 public class ProjectAdaptateur extends ArrayAdapter<Project> {
 
 
-        //tweets est la liste des models à afficher
         public ProjectAdaptateur(Context context, List<Project> projects) {
             super(context, 0, projects);
         }
@@ -44,7 +43,7 @@ public class ProjectAdaptateur extends ArrayAdapter<Project> {
 
             //il ne reste plus qu'à remplir notre vue
             viewHolder.title.setText(project.getTitle());
-            viewHolder.descrip.setText(project.getDescrip());
+            viewHolder.descrip.setText(project.getDescrip().substring(0,150)+" ...");
 
             return convertView;
         }

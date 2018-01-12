@@ -48,6 +48,12 @@ public class ConnectionWebService {
     private static final String LOGON_WEB_SERVICE = "LOGON";
     private static final String LIPRJ_WEB_SERVICE = "LIPRJ";
     private static final String MYPRJ_WEB_SERVICE = "MYPRJ";
+    private static final String MYJUR_WEB_SERVICE = "MYJUR";
+    private static final String POSTR_WEB_SERVICE = "POSTR";
+
+
+
+
 
 
     private static ConnectionWebService instance;
@@ -201,6 +207,58 @@ public class ConnectionWebService {
             //jsonResponse = new JsonReader(new InputStreamReader(urlConnection.getInputStream()));
 
 
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public String getListOfJuriesForAuser(){
+
+        URL url;
+        //JsonReader jsonResponse = null;
+        String response = null;
+        try {
+            url = new URL(WEB_SERVICE_URL+"?q="+MYJUR_WEB_SERVICE+"&user="+this.login+"&token="+this.token);
+            HttpsURLConnection urlConnection;
+            urlConnection = (HttpsURLConnection) url.openConnection();
+            urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
+            urlConnection.connect();
+            // Si le serveur nous répond avec un code OK
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                urlConnection.getInputStream();
+            }
+
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            response = convertStreamToString(in);
+            //jsonResponse = new JsonReader(new InputStreamReader(urlConnection.getInputStream()));
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public String getPosterOfProjectWithStyle(String projectId, String style){
+        URL url;
+        String response = null;
+        try {
+            url = new URL(WEB_SERVICE_URL+"?q="+POSTR_WEB_SERVICE+"&user="+this.login+"&proj="+projectId+"&style="+style+"&token="+this.token);
+            HttpsURLConnection urlConnection;
+            urlConnection = (HttpsURLConnection) url.openConnection();
+            urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
+            urlConnection.connect();
+            // Si le serveur nous répond avec un code OK
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                urlConnection.getInputStream();
+            }
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            response = convertStreamToString(in);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

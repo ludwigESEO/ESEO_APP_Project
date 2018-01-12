@@ -1,7 +1,5 @@
 package fr.eseo.dis.couroulu.eseo_app_project;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,7 +11,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -27,42 +24,28 @@ import fr.eseo.dis.couroulu.eseo_app_project.Data.Project;
 
 public class AllProjectsFragment extends Fragment {
 
-    private Button buttonMoreInformations;
-    private TextView txtTitleProjectsView;
-    private TextView txtDescriptionProjectsView;
     private HomeActivity homeActivity;
     private ListView mListView;
 
     public static AllProjectsFragment newInstance(HomeActivity homeActivity){
 
         AllProjectsFragment fragment = new AllProjectsFragment();
-
         fragment.homeActivity = homeActivity;
-
         return fragment;
-
-
     }
 
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_all_posters, container, false);
-        //Instancier vos composants graphique ici (faîtes vos findViewById)
-       //setContentView(R.layout.activity_home);
-         mListView = (ListView) view.findViewById(R.id.listView);
-
+        View view = inflater.inflate(R.layout.fragment_all_projects, container, false);
+        mListView = (ListView) view.findViewById(R.id.listView);
         List<Project> projects = getAllProject();
-        Log.d("Size project list :  ", String.valueOf(projects.size()));
-
-        Log.d("1er projet", projects.get(0).getTitle());
-
         ProjectAdaptateur adapter = new ProjectAdaptateur(homeActivity, projects);
         mListView.setAdapter(adapter);
         //buttonMoreInformations = (Button) view.findViewById(R.id.ButtonMoreInformations);
         //buttonMoreInformations.setOnClickListener(btnListenerMoreInfo);
         return view;
     }
-
+/*
     private View.OnClickListener btnListenerMoreInfo = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -70,6 +53,7 @@ public class AllProjectsFragment extends Fragment {
 
         }
     };
+    */
 
     private List<Project> getAllProject() {
 
@@ -88,7 +72,7 @@ public class AllProjectsFragment extends Fragment {
                         for (int i = 0; i < projectsJson.length(); i++) {
 
                             Project proj = new Project();
-                            Deserializer.deserializeProject(projectsJson.getJSONObject(i));
+                            proj = Deserializer.deserializeProject(projectsJson.getJSONObject(i));
                             projects.add(proj);
                         }
 
