@@ -56,6 +56,7 @@ public class Deserializer {
                 for (int i = 0; i< membersJson.length(); i++){
                     members.add(deserializeStudent(membersJson.getJSONObject(i)));
                 }
+                jury.setMembers(members);
             }
             if (jsonInfo.has("projects")) {
                 JSONArray projectsJson = jsonInfo.getJSONArray("projects");
@@ -63,10 +64,11 @@ public class Deserializer {
                 for (int i = 0; i< projectsJson.length(); i++){
                     projects.add(deserializeProject(projectsJson.getJSONObject(i)));
                 }
+                jury.setProjects(projects);
             }
 
         }
-       return null;
+       return jury;
 
     }
 

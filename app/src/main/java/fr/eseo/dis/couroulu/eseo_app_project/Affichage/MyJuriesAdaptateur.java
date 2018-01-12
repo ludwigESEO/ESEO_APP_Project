@@ -32,7 +32,7 @@ public class MyJuriesAdaptateur extends ArrayAdapter<Jury> {
         MyJuriesAdaptateur.MyJuriesViewHolder viewHolder = (MyJuriesAdaptateur.MyJuriesViewHolder) convertView.getTag();
         if(viewHolder == null){
             viewHolder = new MyJuriesAdaptateur.MyJuriesViewHolder();
-            viewHolder.date = (TextView) convertView.findViewById(R.id.title);
+            viewHolder.date = (TextView) convertView.findViewById(R.id.date);
             viewHolder.members = (TextView) convertView.findViewById(R.id.members);
             convertView.setTag(viewHolder);
         }

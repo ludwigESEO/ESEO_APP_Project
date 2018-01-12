@@ -16,6 +16,7 @@ import fr.eseo.dis.couroulu.eseo_app_project.Communication.ConnectionWebService;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Deserializer;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Jury;
 
+
 public class MyJuriesFragment extends Fragment {
 
     private HomeActivity homeActivity;

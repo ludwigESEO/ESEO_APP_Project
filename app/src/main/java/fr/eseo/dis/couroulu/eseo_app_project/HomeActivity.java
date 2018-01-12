@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity
         this.homeFragment = new HomeFragment();
         this.myposterFragment = new MyPostersFragment();
         this.allProjectsFragment = AllProjectsFragment.newInstance(this);
-        this.myJuriesFragment = new MyJuriesFragment();
+        this.myJuriesFragment = MyJuriesFragment.newInstance(this);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         pagerAdapter = new MonPagerAdapter(getSupportFragmentManager());
