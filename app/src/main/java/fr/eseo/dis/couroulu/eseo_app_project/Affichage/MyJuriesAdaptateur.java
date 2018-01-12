@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Jury;
-import fr.eseo.dis.couroulu.eseo_app_project.Data.Project;
 import fr.eseo.dis.couroulu.eseo_app_project.R;
 
 /**
@@ -34,7 +33,7 @@ public class MyJuriesAdaptateur extends ArrayAdapter<Jury> {
         if(viewHolder == null){
             viewHolder = new MyJuriesAdaptateur.MyJuriesViewHolder();
             viewHolder.date = (TextView) convertView.findViewById(R.id.title);
-           // viewHolder.descrip = (TextView) convertView.findViewById(R.id.descrip);
+            viewHolder.members = (TextView) convertView.findViewById(R.id.members);
             convertView.setTag(viewHolder);
         }
 
@@ -42,15 +41,15 @@ public class MyJuriesAdaptateur extends ArrayAdapter<Jury> {
         Jury jury = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
-        viewHolder.date.setText(jury.getDate());
-        //viewHolder.descrip.setText(jury.getDescrip());
+        viewHolder.date.setText("Date du Jury : " + jury.getDate());
+        viewHolder.members.setText(jury.toStringListMembers());
 
         return convertView;
     }
 
     private class MyJuriesViewHolder{
         public TextView date;
-       // public TextView descrip;
+        public TextView members;
     }
 
 }

@@ -32,4 +32,8 @@ public class Student {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
+    public String toStringMembers() {
+        return "forename : " + forename + ", surname : " + surname;
+    }
 }

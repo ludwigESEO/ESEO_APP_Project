@@ -10,6 +10,7 @@ public class Jury {
 
     private int idJury;
     private String date;
+    private List<Student> members;
     private List<Project> projects;
 
     public int getIdJury() {
@@ -28,11 +29,43 @@ public class Jury {
         this.date = date;
     }
 
+    public List<Student> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Student> members) {
+        this.members = members;
+    }
+
     public List<Project> getProjects() {
         return projects;
     }
 
     public void setProjects(List<Project> projects) {
         this.projects = projects;
+    }
+
+    public String toStringListMembers(){
+        String res="";
+        if(this.getMembers().size()!=0) {
+            res = this.getMembers().get(0).toStringMembers();
+            if (this.getMembers().size() != 1) {
+                for (int i = 1; i < this.getMembers().size(); i++) {
+                    res += " - " + this.getMembers().get(i).toStringMembers();
+                }
+            }
+
+        }
+        return res;
+    }
+
+    @Override
+    public String toString() {
+        return "Jury{" +
+                "idJury=" + idJury +
+                ", date='" + date + '\'' +
+                ", members=" + members +
+                ", projects=" + projects +
+                '}';
     }
 }

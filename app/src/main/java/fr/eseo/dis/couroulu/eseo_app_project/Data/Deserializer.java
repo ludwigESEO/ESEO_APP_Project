@@ -50,6 +50,13 @@ public class Deserializer {
         }
         if (json.has("info")){
             JSONObject jsonInfo = json.getJSONObject("info");
+            if (jsonInfo.has("members")) {
+                JSONArray membersJson = jsonInfo.getJSONArray("members");
+                List<Student> members = new ArrayList<Student>();
+                for (int i = 0; i< membersJson.length(); i++){
+                    members.add(deserializeStudent(membersJson.getJSONObject(i)));
+                }
+            }
             if (jsonInfo.has("projects")) {
                 JSONArray projectsJson = jsonInfo.getJSONArray("projects");
                 List<Project> projects = new ArrayList<Project>();
