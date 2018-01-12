@@ -1,12 +1,6 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Data;
 
-
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.List;
 
 /**
  * Created by florent on 10/01/18.

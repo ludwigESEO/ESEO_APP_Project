@@ -28,7 +28,8 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".InfoProjectActivity"></activity>
+        <activity android:name=".InfoProjectActivity" />
+        <activity android:name=".ListProjectFromJuryActivity"></activity>
     </application>
 
 </manifest>

@@ -50,11 +50,7 @@ public class ConnectionWebService {
     private static final String MYPRJ_WEB_SERVICE = "MYPRJ";
     private static final String MYJUR_WEB_SERVICE = "MYJUR";
     private static final String POSTR_WEB_SERVICE = "POSTR";
-
-
-
-
-
+    private static final String JYINF_WEB_SERVICE = "JYINF";
 
     private static ConnectionWebService instance;
     private Context activityContext;
@@ -242,6 +238,33 @@ public class ConnectionWebService {
             e.printStackTrace();
         }
         return response;
+    }
+
+    public String getProjectFromJury(String juryId){
+
+
+        URL url;
+        String response = null;
+        try {
+            url = new URL(WEB_SERVICE_URL+"?q="+JYINF_WEB_SERVICE+"&user="+this.login+"&jury="+juryId+"&token="+this.token);
+            HttpsURLConnection urlConnection;
+            urlConnection = (HttpsURLConnection) url.openConnection();
+            urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
+            urlConnection.connect();
+            // Si le serveur nous répond avec un code OK
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                urlConnection.getInputStream();
+            }
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            response = convertStreamToString(in);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+
+
     }
 
     public String getPosterOfProjectWithStyle(String projectId, String style){
