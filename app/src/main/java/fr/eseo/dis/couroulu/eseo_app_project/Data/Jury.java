@@ -47,11 +47,11 @@ public class Jury {
 
     public String toStringListMembers(){
         String res="";
-        if(this.getMembers().size()!=0) {
+        if(this.members.size()!=0) {
             res = this.getMembers().get(0).toStringMembers();
-            if (this.getMembers().size() != 1) {
-                for (int i = 1; i < this.getMembers().size(); i++) {
-                    res += " - " + this.getMembers().get(i).toStringMembers();
+            if (this.members.size() != 1) {
+                for (int i = 1; i < this.members.size(); i++) {
+                    res += " - " + this.members.get(i).toStringMembers();
                 }
             }
 
