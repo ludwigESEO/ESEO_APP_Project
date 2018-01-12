@@ -5,10 +5,6 @@
     tools:context="fr.eseo.dis.couroulu.eseo_app_project.MyJuriesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hello_juries_fragment" />
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
 

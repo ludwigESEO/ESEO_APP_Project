@@ -52,7 +52,7 @@ public class Jury {
                 res = this.members.get(0).toStringMembers();
                 if (this.members.size() != 1) {
                     for (int i = 1; i < this.members.size(); i++) {
-                        res += " - " + this.members.get(i).toStringMembers();
+                        res += "\r\n " + this.members.get(i).toStringMembers();
                     }
                 }
 
