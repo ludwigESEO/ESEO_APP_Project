@@ -1,6 +1,7 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Affichage;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class MyJuriesAdaptateur extends ArrayAdapter<Jury> {
         Jury jury = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
+        Log.d("date", jury.getDate());
         viewHolder.date.setText("Date du Jury : " + jury.getDate());
         viewHolder.members.setText(jury.toStringListMembers());
 

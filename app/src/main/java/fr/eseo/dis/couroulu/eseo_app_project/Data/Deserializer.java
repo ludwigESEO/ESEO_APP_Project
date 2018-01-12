@@ -1,5 +1,7 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Data;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,14 +42,16 @@ public class Deserializer {
     }
 
     public static synchronized Jury deserializeJury(JSONObject json) throws Exception{
-
        Jury jury = new Jury();
+
         if (json.has("idJury")){
             jury.setIdJury(json.getInt("idJury"));
         }
+
         if (json.has("date")){
             jury.setDate(json.getString("date"));
         }
+
         if (json.has("info")){
             JSONObject jsonInfo = json.getJSONObject("info");
             if (jsonInfo.has("members")) {

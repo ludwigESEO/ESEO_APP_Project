@@ -3,6 +3,7 @@ package fr.eseo.dis.couroulu.eseo_app_project;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class MyJuriesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_juries, container, false);
         mListView = (ListView) view.findViewById(R.id.listView);
         List<Jury> juries = getMyJuries();
+        Log.d("juries",String.valueOf(juries.get(0).getMembers().size()));
         MyJuriesAdaptateur adapter = new MyJuriesAdaptateur(homeActivity, juries);
         mListView.setAdapter(adapter);
 

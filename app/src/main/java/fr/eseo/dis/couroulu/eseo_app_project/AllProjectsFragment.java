@@ -1,14 +1,16 @@
 package fr.eseo.dis.couroulu.eseo_app_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,6 +43,17 @@ public class AllProjectsFragment extends Fragment {
         List<Project> projects = getAllProject();
         ProjectAdaptateur adapter = new ProjectAdaptateur(homeActivity, projects);
         mListView.setAdapter(adapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent appInfo = new Intent(homeActivity, InfoProjectActivity.class);
+                startActivity(appInfo);
+
+            }
+        });
+
+
         return view;
     }
 /*
