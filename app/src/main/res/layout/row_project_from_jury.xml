@@ -2,6 +2,19 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="10dp" >
+
+    <TextView android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_marginLeft="10dp"  android:textStyle="bold" tools:text="title" />
+
+    <TextView android:id="@+id/descrip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/title" android:layout_below="@+id/title" tools:text="" />
+
+    <TextView android:id="@+id/confid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/descrip" android:layout_below="@+id/descrip" tools:text="" />
+
+    <TextView android:id="@+id/supervisor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/confid" android:layout_below="@+id/confid" tools:text="" />
+
+    <TextView android:id="@+id/student" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/supervisor" android:layout_below="@+id/supervisor" tools:text="" />
 
 
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

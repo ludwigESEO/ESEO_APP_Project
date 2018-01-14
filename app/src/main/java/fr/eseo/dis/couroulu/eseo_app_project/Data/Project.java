@@ -71,4 +71,20 @@ public class Project {
     public void setStudents(List<Student> students) {
         this.students = students;
     }
+
+    public String toStringListStudent(){
+        String res="";
+        if(this.students != null) {
+            if (this.students.size() != 0) {
+                res = this.students.get(0).toStringMembers();
+                if (this.students.size() != 1) {
+                    for (int i = 1; i < this.students.size(); i++) {
+                        res += "\r\n " + this.students.get(i).toStringMembers();
+                    }
+                }
+
+            }
+        }
+        return res;
+    }
 }

@@ -45,12 +45,11 @@ public class ProjectFromJuryAdaptateur extends ArrayAdapter<Project> {
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.title.setText(project.getTitle());
-        String description = project.getDescrip();
-        if (description.length()< 147){
-            viewHolder.descrip.setText(project.getDescrip());
-        }else {
-            viewHolder.descrip.setText(project.getDescrip().substring(0, 147) + " ...");
-        }
+        viewHolder.descrip.setText(project.getDescrip());
+        viewHolder.confid.setText(project.getConfid());
+        viewHolder.supervisor.setText(project.getSupervisor().getForename()+" "+ project.getSupervisor().getSurname());
+        viewHolder.student.setText(project.toStringListStudent());
+
         return convertView;
     }
 

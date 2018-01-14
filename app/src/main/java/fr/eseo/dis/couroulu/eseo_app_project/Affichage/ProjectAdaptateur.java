@@ -55,6 +55,7 @@ public class ProjectAdaptateur extends ArrayAdapter<Project> {
         private class ProjectViewHolder{
             public TextView title;
             public TextView descrip;
+
         }
 
 }
