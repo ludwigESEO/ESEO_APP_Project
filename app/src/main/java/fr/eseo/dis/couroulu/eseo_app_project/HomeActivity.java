@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity
@@ -50,6 +51,7 @@ public class HomeActivity extends AppCompatActivity
         TextView loginTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.loginName);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         Intent intent = getIntent();
         String login = intent.getStringExtra("Login");
         loginTextView.setText(login);
@@ -62,6 +64,21 @@ public class HomeActivity extends AppCompatActivity
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         pagerAdapter = new MonPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
+
+
+        ImageView imgEseoLink = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imgEseo);
+        imgEseoLink.setOnClickListener(new View.OnClickListener() {
+            // Fonction pour lorsque click imageView Eseo go to home Page
+            public void onClick(View v) {
+                Fragment fragment = new HomeFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentHome, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
     }
 
     @Override

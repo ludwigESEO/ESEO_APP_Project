@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class MyJuriesFragment extends Fragment {
 
     private HomeActivity homeActivity;
     private ListView mListView;
+    private TextView mTextNoJury;
 
     public static MyJuriesFragment newInstance(HomeActivity homeActivity){
 
@@ -32,12 +35,23 @@ public class MyJuriesFragment extends Fragment {
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my_juries, container, false);
-        mListView = (ListView) view.findViewById(R.id.listView);
+
         List<Jury> juries = getMyJuries();
-        Log.d("juries",String.valueOf(juries.get(0).getMembers().size()));
-        MyJuriesAdaptateur adapter = new MyJuriesAdaptateur(homeActivity, juries);
-        mListView.setAdapter(adapter);
+        View view ;
+        if (juries!=null) {
+            view = inflater.inflate(R.layout.fragment_my_juries, container, false);
+            mListView = (ListView) view.findViewById(R.id.listView);
+
+            Log.d("juries", String.valueOf(juries.get(0).getMembers().size()));
+            MyJuriesAdaptateur adapter = new MyJuriesAdaptateur(homeActivity, juries);
+            mListView.setAdapter(adapter);
+
+
+        }else{
+            view = inflater.inflate(R.layout.fragment_no_juries, container, false);
+            mTextNoJury = (TextView) view.findViewById(R.id.textViewNoJuries);
+
+        }
 
         return view;
     }
