@@ -3,6 +3,7 @@ package fr.eseo.dis.couroulu.eseo_app_project;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eseo.dis.couroulu.eseo_app_project.Affichage.ProjectAdaptateur;
+import fr.eseo.dis.couroulu.eseo_app_project.Affichage.ProjectFromJuryAdaptateur;
 import fr.eseo.dis.couroulu.eseo_app_project.Communication.ConnectionWebService;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Deserializer;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Project;
@@ -30,8 +32,10 @@ public class ListProjectFromJuryActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listViewJuryProject);
         Intent intent = getIntent();
         String idJury = intent.getStringExtra("idJury");
-        final List<Project> projects = getProjectFromJury(idJury);
-        ProjectAdaptateur adapter = new ProjectAdaptateur(this, projects);
+        Log.d("id du jury click : ", idJury);
+        List<Project> projectFromJuryList = getProjectFromJury(idJury);
+        Log.d("nbr project :", String.valueOf(projectFromJuryList.size()));
+        ProjectFromJuryAdaptateur adapter = new ProjectFromJuryAdaptateur(this, projectFromJuryList);
         mListView.setAdapter(adapter);
 
 
