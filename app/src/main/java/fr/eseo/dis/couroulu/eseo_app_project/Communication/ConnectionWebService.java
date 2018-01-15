@@ -267,9 +267,10 @@ public class ConnectionWebService {
 
     }
 
-    public String getPosterOfProjectWithStyle(String projectId, String style){
+    public InputStream getPosterOfProjectWithStyle(String projectId, String style){
         URL url;
         String response = null;
+        InputStream in = null;
         try {
             url = new URL(WEB_SERVICE_URL+"?q="+POSTR_WEB_SERVICE+"&user="+this.login+"&proj="+projectId+"&style="+style+"&token="+this.token);
             HttpsURLConnection urlConnection;
@@ -280,14 +281,14 @@ public class ConnectionWebService {
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 urlConnection.getInputStream();
             }
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            response = convertStreamToString(in);
+             in = new BufferedInputStream(urlConnection.getInputStream());
+           // response = convertStreamToString(in);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return response;
+        return in;
     }
 
 
