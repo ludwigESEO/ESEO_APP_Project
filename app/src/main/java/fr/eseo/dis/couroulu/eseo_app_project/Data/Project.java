@@ -74,7 +74,7 @@ public class Project implements Serializable{
     }
 
     public String toStringListStudent(){
-        String res="";
+        String res="Member(s) : \r\n";
         if(this.students != null) {
             if (this.students.size() != 0) {
                 res = this.students.get(0).toStringMembers();
