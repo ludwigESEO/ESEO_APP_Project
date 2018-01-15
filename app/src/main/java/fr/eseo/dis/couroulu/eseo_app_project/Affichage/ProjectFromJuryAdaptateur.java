@@ -34,9 +34,9 @@ public class ProjectFromJuryAdaptateur extends ArrayAdapter<Project> {
             viewHolder = new ProjectFromJuryAdaptateur.ProjectViewHolder();
             viewHolder.title = (TextView) convertView.findViewById(R.id.title);
             viewHolder.descrip = (TextView) convertView.findViewById(R.id.descrip);
-            viewHolder.confid = (TextView) convertView.findViewById(R.id.confid);
-            viewHolder.supervisor = (TextView) convertView.findViewById(R.id.supervisor);
-            viewHolder.student = (TextView) convertView.findViewById(R.id.student);
+            //viewHolder.confid = (TextView) convertView.findViewById(R.id.confid);
+            //viewHolder.supervisor = (TextView) convertView.findViewById(R.id.supervisor);
+            //viewHolder.student = (TextView) convertView.findViewById(R.id.student);
             convertView.setTag(viewHolder);
         }
 

@@ -21,26 +21,30 @@ import fr.eseo.dis.couroulu.eseo_app_project.Data.Project;
 public class ListProjectFromJuryActivity extends AppCompatActivity {
 
     private ListView mListView;
+    private ListProjectFromJuryActivity listProjectFromJuryActivity ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_project_from_jury);
         mListView = (ListView) findViewById(R.id.listViewJuryProject);
-        List<Project> projects = getProjectFromJury("1");
+        Intent intent = getIntent();
+        String idJury = intent.getStringExtra("idJury");
+        final List<Project> projects = getProjectFromJury(idJury);
         ProjectAdaptateur adapter = new ProjectAdaptateur(this, projects);
         mListView.setAdapter(adapter);
 
-        /*
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent appInfo = new Intent(t, InfoProjectActivity.class);
+                Intent appInfo = new Intent(listProjectFromJuryActivity, InfoProjectActivity.class);
+
                 startActivity(appInfo);
 
             }
         });
-*/
+
 
     }
 

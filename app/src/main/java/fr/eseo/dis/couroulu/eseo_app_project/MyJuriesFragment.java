@@ -1,12 +1,14 @@
 package fr.eseo.dis.couroulu.eseo_app_project;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,15 +38,25 @@ public class MyJuriesFragment extends Fragment {
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        List<Jury> juries = getMyJuries();
+        final List<Jury> juries = getMyJuries();
         View view ;
-        if (juries!=null) {
+        if (!juries.isEmpty()) {
             view = inflater.inflate(R.layout.fragment_my_juries, container, false);
             mListView = (ListView) view.findViewById(R.id.listView);
 
             Log.d("juries", String.valueOf(juries.get(0).getMembers().size()));
             MyJuriesAdaptateur adapter = new MyJuriesAdaptateur(homeActivity, juries);
             mListView.setAdapter(adapter);
+
+            mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent appInfo = new Intent(homeActivity, ListProjectFromJuryActivity.class);
+                    appInfo.putExtra("idJury", juries.get(position).getIdJury());
+                    startActivity(appInfo);
+
+                }
+            });
 
 
         }else{
