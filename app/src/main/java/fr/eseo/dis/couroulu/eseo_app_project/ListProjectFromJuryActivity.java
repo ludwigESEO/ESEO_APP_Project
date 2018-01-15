@@ -33,7 +33,7 @@ public class ListProjectFromJuryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String idJury = intent.getStringExtra("idJury");
         Log.d("id du jury click : ", idJury);
-        List<Project> projectFromJuryList = getProjectFromJury(idJury);
+        final List<Project> projectFromJuryList = getProjectFromJury(idJury);
         Log.d("nbr project :", String.valueOf(projectFromJuryList.size()));
         ProjectFromJuryAdaptateur adapter = new ProjectFromJuryAdaptateur(this, projectFromJuryList);
         mListView.setAdapter(adapter);
@@ -42,8 +42,8 @@ public class ListProjectFromJuryActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent appInfo = new Intent(listProjectFromJuryActivity, InfoProjectActivity.class);
-
+                Intent appInfo = new Intent(view.getContext(), InfoProjectActivity.class);
+                appInfo.putExtra("idProject", String.valueOf(projectFromJuryList.get(position).getIdProject()));
                 startActivity(appInfo);
 
             }
