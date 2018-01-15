@@ -52,7 +52,7 @@ public class MyJuriesFragment extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent appInfo = new Intent(homeActivity, ListProjectFromJuryActivity.class);
-                    appInfo.putExtra("idJury", juries.get(position).getIdJury());
+                    appInfo.putExtra("idJury", String.valueOf(juries.get(position).getIdJury()));
                     startActivity(appInfo);
 
                 }

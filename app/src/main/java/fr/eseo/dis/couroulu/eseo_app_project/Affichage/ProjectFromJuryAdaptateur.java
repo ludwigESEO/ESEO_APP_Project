@@ -46,7 +46,7 @@ public class ProjectFromJuryAdaptateur extends ArrayAdapter<Project> {
         //il ne reste plus qu'à remplir notre vue
         viewHolder.title.setText(project.getTitle());
         viewHolder.descrip.setText(project.getDescrip());
-        viewHolder.confid.setText(project.getConfid());
+        viewHolder.confid.setText(String.valueOf(project.getConfid()));
         viewHolder.supervisor.setText(project.getSupervisor().getForename()+" "+ project.getSupervisor().getSurname());
         viewHolder.student.setText(project.toStringListStudent());
 

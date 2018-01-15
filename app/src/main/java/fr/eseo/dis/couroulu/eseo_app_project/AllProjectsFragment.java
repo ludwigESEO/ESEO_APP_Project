@@ -48,7 +48,7 @@ public class AllProjectsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent appInfo = new Intent(homeActivity, InfoProjectActivity.class);
-                appInfo.putExtra("idProject", projects.get(position).getIdProject());
+                appInfo.putExtra("idProject", String.valueOf(projects.get(position).getIdProject()));
                 startActivity(appInfo);
 
             }

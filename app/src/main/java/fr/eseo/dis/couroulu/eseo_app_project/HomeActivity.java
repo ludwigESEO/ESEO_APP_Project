@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -29,6 +30,8 @@ public class HomeActivity extends AppCompatActivity
     private MyJuriesFragment myJuriesFragment ;
     private HomeFragment homeFragment;
     private MonPagerAdapter pagerAdapter;
+    private HomeActivity homeActivity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +73,10 @@ public class HomeActivity extends AppCompatActivity
         imgEseoLink.setOnClickListener(new View.OnClickListener() {
             // Fonction pour lorsque click imageView Eseo go to home Page
             public void onClick(View v) {
-                Fragment fragment = new HomeFragment();
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentHome, fragment)
-                        .addToBackStack(null)
-                        .commit();
+
+                        Intent appInfo = new Intent(v.getContext(), HomeActivity.class);
+                        startActivity(appInfo);
+
             }
         });
 
