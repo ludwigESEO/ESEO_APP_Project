@@ -26,4 +26,8 @@ public class Supervisor implements Serializable{
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
+    public String toStringSupervisor(){
+        return "Supervisor : " + this.forename + " " + this.surname;
+    }
 }
