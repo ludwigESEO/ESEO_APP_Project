@@ -34,9 +34,7 @@ public class ProjectFromJuryAdaptateur extends ArrayAdapter<Project> {
             viewHolder = new ProjectFromJuryAdaptateur.ProjectViewHolder();
             viewHolder.title = (TextView) convertView.findViewById(R.id.title);
             viewHolder.descrip = (TextView) convertView.findViewById(R.id.descrip);
-            viewHolder.confid = (TextView) convertView.findViewById(R.id.confid);
-            viewHolder.supervisor = (TextView) convertView.findViewById(R.id.supervisor);
-            viewHolder.student = (TextView) convertView.findViewById(R.id.student);
+
             convertView.setTag(viewHolder);
         }
 
@@ -45,10 +43,13 @@ public class ProjectFromJuryAdaptateur extends ArrayAdapter<Project> {
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.title.setText(project.getTitle());
-        viewHolder.descrip.setText(project.getDescrip());
-        viewHolder.confid.setText(String.valueOf(project.getConfid()));
-        viewHolder.supervisor.setText(project.getSupervisor().getForename()+" "+ project.getSupervisor().getSurname());
-        viewHolder.student.setText(project.toStringListStudent());
+        String description = project.getDescrip();
+        if (description.length()< 147){
+            viewHolder.descrip.setText(project.getDescrip());
+        }else {
+            viewHolder.descrip.setText(project.getDescrip().substring(0, 147) + " ...");
+        }
+
 
         return convertView;
     }
@@ -56,9 +57,7 @@ public class ProjectFromJuryAdaptateur extends ArrayAdapter<Project> {
     private class ProjectViewHolder{
         public TextView title;
         public TextView descrip;
-        public TextView confid;
-        public TextView supervisor;
-        public TextView student;
+
     }
 
 }

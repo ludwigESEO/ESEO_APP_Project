@@ -1,10 +1,12 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Data;
 
+import java.io.Serializable;
+
 /**
  * Created by Loulou on 10/01/2018.
  */
-
-public class Supervisor {
+@SuppressWarnings("serial")
+public class Supervisor implements Serializable{
 
     private String forename;
     private String surname;

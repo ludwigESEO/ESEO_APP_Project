@@ -32,9 +32,7 @@ public class ListProjectFromJuryActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listViewJuryProject);
         Intent intent = getIntent();
         String idJury = intent.getStringExtra("idJury");
-        Log.d("id du jury click : ", idJury);
         final List<Project> projectFromJuryList = getProjectFromJury(idJury);
-        Log.d("nbr project :", String.valueOf(projectFromJuryList.size()));
         ProjectFromJuryAdaptateur adapter = new ProjectFromJuryAdaptateur(this, projectFromJuryList);
         mListView.setAdapter(adapter);
 

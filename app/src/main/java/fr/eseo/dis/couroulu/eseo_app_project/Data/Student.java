@@ -1,10 +1,12 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Data;
 
+import java.io.Serializable;
+
 /**
  * Created by florent on 10/01/18.
  */
-
-public class Student {
+@SuppressWarnings("serial")
+public class Student implements Serializable {
     private int userId;
     private String forename;
     private String surname;
@@ -34,6 +36,6 @@ public class Student {
     }
 
     public String toStringMembers() {
-        return "forename : " + forename + ", surname : " + surname;
+        return this.forename + " " + this.surname;
     }
 }

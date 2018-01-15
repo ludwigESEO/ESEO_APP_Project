@@ -1,12 +1,13 @@
 package fr.eseo.dis.couroulu.eseo_app_project.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by florent on 10/01/18.
  */
-
-public class Project {
+@SuppressWarnings("serial")
+public class Project implements Serializable{
 
     private int idProject;
     private String title;
@@ -79,7 +80,7 @@ public class Project {
                 res = this.students.get(0).toStringMembers();
                 if (this.students.size() != 1) {
                     for (int i = 1; i < this.students.size(); i++) {
-                        res += "\r\n " + this.students.get(i).toStringMembers();
+                        res += "\r\n" + this.students.get(i).toStringMembers();
                     }
                 }
 
