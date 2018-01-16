@@ -87,6 +87,23 @@ public class Deserializer {
         return supervisor;
     }
 
+    public static synchronized Note deserializeNote(JSONObject json) throws Exception {
+        Note note = new Note();
+
+        if (json.has("userId"))
+            note.setIdUser(json.getInt("userId"));
+        if (json.has("forename"))
+            note.setForename(json.getString("forename"));
+        if (json.has("surname"))
+            note.setSurname(json.getString("surname"));
+        if (json.has("mynotes"))
+            note.setMynote(json.getString("mynotes"));
+        if (json.has("avgNote"))
+            note.setAvgnote(json.getString("avgNote"));
+
+        return note;
+    }
+
     public static synchronized Student deserializeStudent(JSONObject json) throws Exception {
         Student student = new Student();
 

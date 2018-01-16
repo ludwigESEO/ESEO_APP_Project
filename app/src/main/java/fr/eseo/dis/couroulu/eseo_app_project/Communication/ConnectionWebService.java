@@ -51,6 +51,12 @@ public class ConnectionWebService {
     private static final String MYJUR_WEB_SERVICE = "MYJUR";
     private static final String POSTR_WEB_SERVICE = "POSTR";
     private static final String JYINF_WEB_SERVICE = "JYINF";
+    private static final String NOTES_WEB_SERVICE = "NOTES";
+    private static final String NEWNT_WEB_SERVICE = "NEWNT";
+
+
+
+
 
     private static ConnectionWebService instance;
     private Context activityContext;
@@ -291,6 +297,64 @@ public class ConnectionWebService {
         return in;
     }
 
+    public String getNotesFromProject(String idProject){
+
+        URL url;
+        //JsonReader jsonResponse = null;
+        String response = null;
+        try {
+            url = new URL(WEB_SERVICE_URL+"?q="+NOTES_WEB_SERVICE+"&user="+this.login+"&proj="+idProject+"&token="+this.token);
+            HttpsURLConnection urlConnection;
+            urlConnection = (HttpsURLConnection) url.openConnection();
+            urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
+            urlConnection.connect();
+            // Si le serveur nous répond avec un code OK
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                urlConnection.getInputStream();
+            }
+
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            response = convertStreamToString(in);
+            //jsonResponse = new JsonReader(new InputStreamReader(urlConnection.getInputStream()));
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+
+    public String noteStudent(String idProject, String studentId, String note){
+
+        URL url;
+        //JsonReader jsonResponse = null;
+        String response = null;
+        try {
+            url = new URL(WEB_SERVICE_URL+"?q="+NEWNT_WEB_SERVICE+"&user="+this.login+"&proj="+idProject+"&student="+studentId+"&note="+note+"&token="+this.token);
+            HttpsURLConnection urlConnection;
+            urlConnection = (HttpsURLConnection) url.openConnection();
+            urlConnection.setSSLSocketFactory(this.sslContext.getSocketFactory());
+            urlConnection.connect();
+            // Si le serveur nous répond avec un code OK
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                urlConnection.getInputStream();
+            }
+
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            response = convertStreamToString(in);
+            //jsonResponse = new JsonReader(new InputStreamReader(urlConnection.getInputStream()));
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
 
     public String getProjectsWhereUserIsSupervisor(){
 
