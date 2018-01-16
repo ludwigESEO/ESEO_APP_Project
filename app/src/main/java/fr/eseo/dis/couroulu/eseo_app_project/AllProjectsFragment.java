@@ -47,7 +47,7 @@ public class AllProjectsFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent appInfo = new Intent(homeActivity, InfoProjectActivity.class);
+                Intent appInfo = new Intent(homeActivity, InfoProjectVisitorActivity.class);
                 Project project = projects.get(position);
                 appInfo.putExtra("project", project);
                 startActivity(appInfo);

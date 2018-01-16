@@ -2,10 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.eseo.dis.couroulu.eseo_app_project.AllProjectsFragment">
+    tools:context="fr.eseo.dis.couroulu.eseo_app_project.MyProjectsFragment">
 
-
-    <LinearLayout android:id="@+id/listProjectLayout"
+    <LinearLayout android:id="@+id/listMyProjectLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -18,4 +17,5 @@
 
 
     </LinearLayout>
+
 </FrameLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fr.eseo.dis.couroulu.eseo_app_project.InfoProjectActivity">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                tools:text="Title : "
+                />
+
+            <TextView
+                android:id="@+id/descrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_alignLeft="@+id/title"
+                android:layout_below="@+id/title"
+                tools:text="" />
+
+            <TextView android:id="@+id/confid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/descrip" android:layout_below="@+id/descrip" tools:text="" />
+
+            <TextView android:id="@+id/supervisor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/confid" android:layout_below="@+id/confid" tools:text="" />
+
+            <TextView android:id="@+id/student" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/supervisor" android:layout_below="@+id/supervisor" tools:text="" />
+
+
+            <ImageView
+                android:id="@+id/imgPoster"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignLeft="@+id/student" android:layout_below="@+id/student"
+                android:layout_gravity="center"
+                />
+        </RelativeLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

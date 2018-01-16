@@ -6,28 +6,22 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.InputStream;
-import java.io.Serializable;
-import java.util.List;
 
-import fr.eseo.dis.couroulu.eseo_app_project.Affichage.ProjectAdaptateur;
 import fr.eseo.dis.couroulu.eseo_app_project.Communication.ConnectionWebService;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Project;
-import fr.eseo.dis.couroulu.eseo_app_project.Data.Student;
 
-public class InfoProjectActivity extends AppCompatActivity {
+public class InfoProjectVisitorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_project);
+        setContentView(R.layout.activity_info_project_visitor);
         Intent intent = getIntent();
-        final Project project = (Project) intent.getSerializableExtra("project");
+        Project project = (Project) intent.getSerializableExtra("project");
 
         TextView title = (TextView) findViewById(R.id.title);
         TextView desc = (TextView) findViewById(R.id.descrip);
@@ -57,21 +51,6 @@ public class InfoProjectActivity extends AppCompatActivity {
 
             }
         });
-
-        Button buttonNote = (Button) findViewById(R.id.buttonNoteStudent);
-
-        buttonNote.setOnClickListener(new View.OnClickListener() {
-            // Fonction pour lorsque click imageView Eseo go to home Page
-            public void onClick(View v) {
-
-                Intent appInfo = new Intent(v.getContext(), EditNoteActivity.class);
-                List<Student> students = project.getStudents();
-                appInfo.putExtra("students", (Serializable) students);
-                startActivity(appInfo);
-
-            }
-        });
-
     }
 
 

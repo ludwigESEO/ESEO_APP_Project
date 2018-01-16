@@ -30,7 +30,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".InfoProjectActivity" />
         <activity android:name=".ListProjectFromJuryActivity" />
-        <activity android:name=".FullPosterActivity"></activity>
+        <activity android:name=".FullPosterActivity" />
+        <activity android:name=".InfoProjectVisitorActivity" />
+        <activity android:name=".EditNoteActivity"></activity>
     </application>
 
 </manifest>

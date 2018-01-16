@@ -41,7 +41,8 @@ public class ListProjectFromJuryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent appInfo = new Intent(view.getContext(), InfoProjectActivity.class);
-                appInfo.putExtra("idProject", String.valueOf(projectFromJuryList.get(position).getIdProject()));
+                Project project = projectFromJuryList.get(position);
+                appInfo.putExtra("project", project);
                 startActivity(appInfo);
 
             }

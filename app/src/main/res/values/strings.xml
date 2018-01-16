@@ -27,4 +27,8 @@
     <string name="home_fragment">Bonjour, </string>
     <string name="home_fragment_text">Vous venez de vous connecter à l\'application de gestion des projets de fin d\'études (PFE).</string>
     <string name="txtNoJuries">You are not member of any juries.</string>
+    <string name="txtNoSupervisor">You are supervisor of any projects.</string>
+    <string name="txtNote">Note :</string>
+    <string name="txtButtonNote">Notes</string>
+    <string name="txtUpdateButtonNote">Update</string>
 </resources>

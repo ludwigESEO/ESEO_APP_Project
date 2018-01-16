@@ -40,6 +40,7 @@
     <TextView android:id="@+id/student" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/supervisor" android:layout_below="@+id/supervisor" tools:text="" />
 
 
+
         <ImageView
             android:id="@+id/imgPoster"
 
@@ -48,6 +49,16 @@
             android:layout_alignLeft="@+id/student" android:layout_below="@+id/student"
             android:layout_gravity="center"
             />
+
+        <Button
+            android:id="@+id/buttonNoteStudent"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/imgPoster"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/txtButtonNote"/>
     </RelativeLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

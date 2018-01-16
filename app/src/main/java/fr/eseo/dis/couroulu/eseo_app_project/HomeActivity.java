@@ -2,13 +2,10 @@ package fr.eseo.dis.couroulu.eseo_app_project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,7 +23,7 @@ public class HomeActivity extends AppCompatActivity
 
     private ViewPager viewPager;
     private AllProjectsFragment allProjectsFragment;
-    private MyPostersFragment myposterFragment;
+    private MyProjectsFragment myProjectsFragment;
     private MyJuriesFragment myJuriesFragment ;
     private HomeFragment homeFragment;
     private MonPagerAdapter pagerAdapter;
@@ -60,7 +57,7 @@ public class HomeActivity extends AppCompatActivity
         loginTextView.setText(login);
 
         this.homeFragment = new HomeFragment();
-        this.myposterFragment = new MyPostersFragment();
+        this.myProjectsFragment = MyProjectsFragment.newInstance(this);
         this.allProjectsFragment = AllProjectsFragment.newInstance(this);
         this.myJuriesFragment = MyJuriesFragment.newInstance(this);
 
@@ -148,7 +145,7 @@ public class HomeActivity extends AppCompatActivity
             }if (position == 1){
                 return allProjectsFragment;
             }if (position == 2) {
-                return myposterFragment ;
+                return myProjectsFragment ;
             }else{
                 return myJuriesFragment;
                 }
