@@ -65,8 +65,7 @@ public class InfoProjectActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent appInfo = new Intent(v.getContext(), EditNoteActivity.class);
-                List<Student> students = project.getStudents();
-                appInfo.putExtra("students", (Serializable) students);
+                appInfo.putExtra("idProject", project.getIdProject());
                 startActivity(appInfo);
 
             }

@@ -7,10 +7,17 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eseo.dis.couroulu.eseo_app_project.Affichage.EditNoteAdaptateur;
 import fr.eseo.dis.couroulu.eseo_app_project.Affichage.ProjectAdaptateur;
+import fr.eseo.dis.couroulu.eseo_app_project.Communication.ConnectionWebService;
+import fr.eseo.dis.couroulu.eseo_app_project.Data.Deserializer;
+import fr.eseo.dis.couroulu.eseo_app_project.Data.Note;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Project;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Student;
 
@@ -24,14 +31,42 @@ public class EditNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_note);
         mListView = (ListView) findViewById(R.id.listView);
         Intent intent = getIntent();
-        final List<Student> student = (List<Student>) intent.getSerializableExtra("students");
-
-
-
-
-        EditNoteAdaptateur adapter = new EditNoteAdaptateur(this, student);
+        final String idProject = (String) intent.getStringExtra("idProject");
+        List<Note> notes = getNotes(idProject);
+        EditNoteAdaptateur adapter = new EditNoteAdaptateur(this, notes);
         mListView.setAdapter(adapter);
 
-
     }
+
+    private List<Note> getNotes(String idProject) {
+
+        String projectsStr = ConnectionWebService.getInstance(this).getNotesFromProject(idProject);
+        List<Note> notes = new ArrayList<Note>();
+
+        if (projectsStr != null) {
+
+            JSONObject jsonObj = null;
+            try {
+                jsonObj = new JSONObject(projectsStr);
+                String results = jsonObj.getString("result");
+                if (results.equals("OK")) {
+                    JSONArray projectsJson = jsonObj.getJSONArray("notes");
+                    //looping on all notes
+                    for (int i = 0; i < projectsJson.length(); i++) {
+
+                        Note note = new Note();
+                        note = Deserializer.deserializeNote(projectsJson.getJSONObject(i));
+                        notes.add(note);
+                    }
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        return notes;
+    }
+
 }

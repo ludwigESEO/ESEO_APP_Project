@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Jury;
+import fr.eseo.dis.couroulu.eseo_app_project.Data.Note;
 import fr.eseo.dis.couroulu.eseo_app_project.Data.Student;
 import fr.eseo.dis.couroulu.eseo_app_project.R;
 
@@ -19,10 +20,10 @@ import fr.eseo.dis.couroulu.eseo_app_project.R;
  * Created by Loulou on 16/01/2018.
  */
 
-public class EditNoteAdaptateur extends ArrayAdapter<Student> {
+public class EditNoteAdaptateur extends ArrayAdapter<Note>{
 
-    public EditNoteAdaptateur(Context context, List<Student> students) {
-        super(context, 0, students);
+    public EditNoteAdaptateur(Context context, List<Note> notes) {
+        super(context, 0, notes);
     }
 
     @Override
@@ -42,13 +43,13 @@ public class EditNoteAdaptateur extends ArrayAdapter<Student> {
         }
 
         //getItem(position) va récupérer l'item [position] de la List<Tweet> tweets
-        Student student = getItem(position);
+        Note note = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
 
-        viewHolder.forename.setText("Name : " + student.getForename());
-        viewHolder.surname.setText(student.getSurname());
-        viewHolder.note.setText("");
+        viewHolder.forename.setText("Name : " + note.getForename());
+        viewHolder.surname.setText(note.getSurname());
+        viewHolder.note.setText(note.getMynote());
 
         return convertView;
     }
