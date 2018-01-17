@@ -39,17 +39,26 @@ public class EditNoteAdaptateur extends ArrayAdapter<Note>{
             viewHolder.forename = (TextView) convertView.findViewById(R.id.forename);
             viewHolder.surname = (TextView) convertView.findViewById(R.id.surname);
             viewHolder.note = (EditText) convertView.findViewById(R.id.noteStudent);
+            viewHolder.avgnote = (TextView) convertView.findViewById(R.id.idAvgNote);
             convertView.setTag(viewHolder);
         }
 
         //getItem(position) va récupérer l'item [position] de la List<Tweet> tweets
         Note note = getItem(position);
 
-        //il ne reste plus qu'à remplir notre vue
+        String avgNoteNew = note.getAvgnote();
+        if (avgNoteNew.length()>=5){
+            avgNoteNew = avgNoteNew.substring(0,4);
+        }
+
 
         viewHolder.forename.setText("Name : " + note.getForename());
         viewHolder.surname.setText(note.getSurname());
-        viewHolder.note.setText(note.getMynote());
+        viewHolder.avgnote.setText("Average Note : " + avgNoteNew);
+
+        if (viewHolder.note.getText() != null && viewHolder.note.getText().toString().isEmpty()) {
+            viewHolder.note.setText(note.getMynote());
+        }
 
         return convertView;
     }
@@ -58,5 +67,6 @@ public class EditNoteAdaptateur extends ArrayAdapter<Note>{
         public TextView forename;
         public TextView surname;
         public EditText note;
+        public TextView avgnote;
     }
 }

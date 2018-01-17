@@ -1,25 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="10dp" >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="29dp"
+        tools:ignore="MissingConstraints">
 
-        <TextView android:id="@+id/forename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_marginLeft="10dp"  android:textStyle="bold" tools:text="" />
+        <TextView
+            android:id="@+id/forename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            tools:text="" />
 
-        <TextView android:id="@+id/surname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black" android:layout_alignLeft="@+id/forename" android:layout_below="@+id/forename" tools:text="" />
+        <TextView
+            android:id="@+id/surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/forename"
+            android:layout_below="@+id/forename"
+            android:textColor="@android:color/black"
+            tools:text="" />
 
-        <AutoCompleteTextView
-            android:id="@+id/noteStudent"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/surname"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:hint="@string/txtNote"
-            android:maxLines="1"
-            android:singleLine="true" />
+            android:orientation="horizontal">
 
+
+            <EditText
+                android:id="@+id/noteStudent"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:hint="@string/txtNote"
+                android:inputType="numberDecimal"
+                />
+
+            <TextView
+                android:id="@+id/idAvgNote"
+                android:layout_width="175dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

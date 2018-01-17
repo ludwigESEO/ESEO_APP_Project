@@ -96,8 +96,8 @@ public class Deserializer {
             note.setForename(json.getString("forename"));
         if (json.has("surname"))
             note.setSurname(json.getString("surname"));
-        if (json.has("mynotes"))
-            note.setMynote(json.getString("mynotes"));
+        if (json.has("mynote"))
+            note.setMynote(json.getString("mynote"));
         if (json.has("avgNote"))
             note.setAvgnote(json.getString("avgNote"));
 

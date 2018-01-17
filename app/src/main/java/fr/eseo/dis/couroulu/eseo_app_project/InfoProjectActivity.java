@@ -65,7 +65,7 @@ public class InfoProjectActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent appInfo = new Intent(v.getContext(), EditNoteActivity.class);
-                appInfo.putExtra("idProject", project.getIdProject());
+                appInfo.putExtra("idProject", String.valueOf(project.getIdProject()));
                 startActivity(appInfo);
 
             }
